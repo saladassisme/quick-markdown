@@ -1,0 +1,88 @@
+#article {
+    max-width: 900px;
+    margin: 0 auto;
+}
+#article code {
+    background-color: #eee;
+    padding: 3px 5px;
+    border-radius: 4px;
+}
+#article pre.hljs {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    background-color: rgb(250, 250, 250);
+    overflow-x: auto;
+    line-height: 150%;
+}
+#article pre.hljs code {
+    background-color: transparent;
+}
+#article p img {
+    max-width: 100%;
+}
+#article mark {
+    background-color: rgb(221,237,234);
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 1px;
+    border-radius: 3px;
+}
+#article p {
+    line-height: 170%;
+}
+#article .tips {
+    display: flex;
+    margin: 10px 0;
+    padding: 7px 20px;
+    background-color: #EAFAF1;
+}
+#article .tips::before {
+    content: "💡";
+    font-size: 30px;
+    padding-top: 10px;
+    padding-right: 13px;
+}
+#article .warning {
+    display: flex;
+    margin: 10px 0;
+    padding: 7px 20px;
+    background-color: #FDF2E9;
+}
+#article .warning::before {
+    content: "⚡";
+    float: left;
+    font-size: 30px;
+    padding-top: 10px;
+    padding-right: 13px;
+}
+#article li {
+    line-height: 170%;
+}
+#article a {
+    color: #21618C;
+}
+#article table {
+    border-collapse: collapse;
+}
+#article thead tr {
+    border-bottom: 2px solid #21618C;
+}
+#article thead th {
+    padding: 10px;
+}
+#article td {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+footer {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.footer-link {
+    color: #21618C;
+}
+header {
+    text-align: center;
+}

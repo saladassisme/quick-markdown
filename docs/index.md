@@ -1,6 +1,8 @@
-# quick-markdown
+<h1 class="doc-title">Hi, 欢迎使用 quick-markdown</h1>
 
 quick-markdown 是一个 markdown 展示工具，能够快速为你的 markdown 文件生成展示页面。
+
+$<toc{"containerId":"header-toc"}>
 
 ## 快速开始
 
