@@ -6,7 +6,7 @@ $<toc{"containerId":"header-toc"}>
 
 ## 快速开始
 
-fork 本项目，然后将你的 markdown 文件上传至 `docs` 目录，然后打开 github pages 服务，然后访问
+fork [本项目](https://github.com/mengrru/quick-markdown) ，然后将你的 markdown 文件上传至 `docs` 目录，然后打开 github pages 服务，然后访问
 
 ```
 <username>.github.io/quick-markdown/?<filename>
