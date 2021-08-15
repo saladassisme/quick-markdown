@@ -19,7 +19,7 @@
     <script src="./config.js"></script>
     <script>
         var $footerLink = document.getElementById('footer-link')
-        $footerLink.href = '/?' + Config.homepage
+        $footerLink.href = window.location.pathname + '?' + Config.homepage
         document.title = Config.defaultTitle || 'Quick Markdown'
         var notFoundMessage = Config.notFoundText || '404 not found'
 
