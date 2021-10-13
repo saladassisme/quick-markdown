@@ -19,6 +19,7 @@
 }
 #article pre.hljs code {
     background-color: transparent;
+    padding: 0;
 }
 #article p img {
     max-width: 100%;
