@@ -1,0 +1,8 @@
+{
+    "files-list": [
+        "-d", "docs/",
+        "-o", "data/docs-list",
+        "-e", ".md"
+    ]
+}
+
