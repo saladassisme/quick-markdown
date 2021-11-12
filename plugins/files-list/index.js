@@ -1,5 +1,6 @@
 const PathUtils = require('path')
 const fs = require('fs/promises')
+const AppConfig = require('../../config')
 
 const RelativeRootPath = '../../'
 const RootPath = PathUtils.resolve(__dirname, RelativeRootPath)
@@ -41,9 +42,20 @@ async function main () {
     const res = []
     for (const path of files) {
         const relativePath = path.slice(RootPath.length + 1)
-        res.push(PathUtils.parse(relativePath))
+        const r = {
+            fileData: PathUtils.parse(relativePath),
+            frontMatter: await readFileFrontMatter(path)
+        }
+        const docPath = (r.fileData.dir + '/' + r.fileData.name)
+        r.fileData.docPath = AppConfig.docRoot
+            ? PathUtils.relative(AppConfig.docRoot, docPath)
+            : docPath
+        if (!r.frontMatter.title) {
+            r.frontMatter.title = r.fileData.name
+        }
+        res.push(r)
     }
-    const output = res.filter(e => args['-e'] === '*' ? true : args['-e'] === e.ext)
+    const output = res.filter(e => args['-e'] === '*' ? true : args['-e'] === e.fileData.ext)
     await writeFile(args['-o'], JSON.stringify(output))
 }
 
@@ -55,6 +67,23 @@ async function writeFile (mypath, str) {
         fs.mkdir(dir)
     }
     await fs.writeFile(mypath, str)
+}
+async function readFileFrontMatter (mypath) {
+    const content = await fs.readFile(mypath, 'utf8')
+    const res = {}
+    if (content.indexOf('<!--') === 0) {
+        const raw = content.match(/^<!--(.*?)-->/s)[1]
+        raw.split('\n')
+            .forEach(e => {
+                if (e.replace(' ', '').length === 0) {
+                    return
+                }
+                const d = e.split(':')
+                res[d[0].replace(' ', '')] = d.slice(1).join('').replace(/^ /, '') 
+            })
+    }
+    res.tags = res.tags ? res.tags.split(' ') : []
+    return res
 }
 async function readDirRecursively (mypath) {
     const res = []

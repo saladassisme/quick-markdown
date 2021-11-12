@@ -5,3 +5,7 @@ var Config = {
     notFoundText: '',
     notFoundPage: '',
 }
+
+if (typeof module === 'object') {
+    module.exports = Config
+}

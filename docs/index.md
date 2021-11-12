@@ -1,3 +1,9 @@
+<!--
+title: Hi, 欢迎使用 quick-markdown
+time: 2021-11-12
+tags: docs example
+abstract: quick-markdown 使用说明
+-->
 <h1 class="doc-title">Hi, 欢迎使用 quick-markdown</h1>
 
 quick-markdown 是一个 markdown 展示工具，能够快速为你的 markdown 文件生成展示页面。
@@ -96,3 +102,83 @@ docs/
 ## 其它用途
 
 由于 markdown-it 支持 html 和 markdown 混写，所以你可以使用 quick-markdown 来搭建自己的博客，比如这个[示例博客](https://github.com/mengrru/mengrru.github.io)
+
+## Front matter
+
+从文件第一行开始，写入：
+
+```
+<!--
+title: <标题>
+time: <时间>
+tags: <标签；多个标签用空格分开>
+abstract: <摘要>
+-->
+```
+
+## 插件系统
+
+执行命令：
+
+```
+node plugins/index.js
+```
+
+即可运行所有在 `plugins/config.json` 中设置的插件。
+
+`plugins/config.json` 格式为 `插件目录名: 插件参数列表` 。同一个插件可运行多次。
+
+如：
+
+```
+{
+    "files-list": [
+        "-d", "docs/",
+        "-o", "data/docs-list",
+        "-e", ".md"
+    ],
+    "files-list": [
+        "-d", "docs/",
+        "-o", "data/docs-list-2",
+        "-e", ".html"
+    ]
+}
+```
+
+## 预置插件
+
+### 文件列表 files-list
+
+在 `index.html` 底部引入：
+
+```
+<script src="./plugins/files-list/ui.js"></script>
+```
+
+然后执行：
+
+```
+node plugins/files-list/index.js -d docs
+```
+
+最后在需要显示文件列表的地方插入代码：
+
+```
+<div class="plugins-files-list" data-path="data/files-list.output"></div>
+```
+
+效果如下：
+
+<div class="plugins-files-list" data-path="data/files-list.output"></div>
+
+html 标签属性可选参数：
+
+| 属性名 | 值类型 | 可选值 | 注释 |
+| --- | --- | --- | --- |
+| data-path | String | - | 数据源路径 |
+| data-time | - | - | 显示时间 |
+| data-tags | - | - | 显示标签 |
+| data-abstract | - | - | 显示摘要 |
+| data-sort | String | 'time' | 根据什么进行排序 |
+| data-asc | - | - | 按照升序排列 |
+
