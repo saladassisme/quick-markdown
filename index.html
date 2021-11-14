@@ -1,19 +1,19 @@
 <!DOCTYPE html>
-<html lang="zh-​cmn-Hans">
+<html lang="zh-cmn-Hans">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <title>Quick Markdown</title>
-    <link rel="stylesheet" href="./statics/default.min.css">
-    <link rel="stylesheet" href="./statics/md.style.default.css">
+    <link rel="stylesheet" href="./statics/md.base.css">
 </head>
 <body>
     <header id="header"></header>
     <article id="article">
     </article>
     <footer id="footer" style="display: none;">
+        <a id="footer-link" class="footer-link" onclick="window.history.go(-1); return false" href="#">返回上一页</a>
         <a id="footer-link" class="footer-link" href="/">返回首页</a>
     </footer>
     <script src="./config.js"></script>
@@ -24,62 +24,11 @@
         var notFoundMessage = Config.notFoundText || '404 not found'
 
         var query = window.location.search.substring(1)
-        if (query) {
+        if (query && query !== Config.homepage.split('.')[0]) {
             document.getElementById('footer').style.display = 'block'
         }
-
-        function loadPage (mdRender, query, errfn) {
-            loadFile(resolveQuery(query), function (data) {
-                renderPage(data, mdRender)
-            }, function () {
-                loadFile(resolveQuery(query, true), function (data) {
-                    renderPage(data, mdRender)
-                }, function () {
-                    typeof errfn === 'function' ? errfn() : ''
-                })
-            })
-        }
-        function load404 (mdRender) {
-            document.title = '404'
-            if (Config.notFoundPage) {
-                loadPage(mdRender, Config.notFoundPage, function () {
-                    document.getElementById('article').innerHTML = '<p style="text-align: center;">' + notFoundMessage + '</p>'
-                })
-            } else {
-                document.getElementById('article').innerHTML = '<p style="text-align: center;">' + notFoundMessage + '</p>'
-            }
-        }
-        function renderPage (data, mdRender) {
-            document.getElementById('article').innerHTML = mdRender.render(data)
-            try {
-                document.title = document.getElementsByClassName('doc-title')[0].textContent
-            } catch (_) {}
-        }
-        function resolveQuery (query, isFileName) {
-            if (query.substring(query.length - 3) === '.md') {
-                return Config.docRoot + query
-            }
-            return query
-            ? decodeURIComponent(Config.docRoot + query + (isFileName ? '.md' : '/index.md'))
-            : resolveQuery(Config.homepage || 'index.md')
-        }
-
-        function loadFile (path, fn, errfn) {
-            const request = new XMLHttpRequest()
-            request.open('get', path)
-            request.send(null)
-            request.onload = function () {
-                if (request.readyState === 4) {
-                    if (request.status === 200) {
-                        fn(request.responseText)
-                    } else {
-                        console.warn('Load file ' + path + ' failed.')
-                        typeof errfn === 'function' ? errfn() : ''
-                    }
-                }
-            }
-        }
     </script>
+    <script src="./statics/qm.js"></script>
     <script src="./statics/markdown-it.js"></script>
     <script src="./statics/markdown-it-mark.js"></script>
     <script src="./statics/markdown-it-container.js"></script>
@@ -95,6 +44,8 @@
             md.use(markdownitMark)
             .use(markdownitContainer, 'tips')
             .use(markdownitContainer, 'warning')
+
+            loadCSS(Config.theme && 'themes/' + Config.theme + '.css')
 
             loadPage(md, query, function () {
                 load404(md)
@@ -125,15 +76,16 @@
         md.use(markdownItAnchor, {
             level: 1,
             permalink: false,
+            containerId:"header-toc"
         }).use(markdownItTocDoneRight)
         .use(markdownitMark)
         .use(markdownitContainer, 'green')
         .use(markdownitContainer, 'red')
 
+        loadCSS(Config.theme && 'themes/' + Config.theme + '.css')
         loadPage(md, query, function () {
             load404(md)
         })
-
     </script>
     <script src="./plugins/files-list/ui.js"></script>
 </body>

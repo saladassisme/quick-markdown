@@ -1,9 +1,10 @@
 var Config = {
     docRoot: 'docs/',
-    homepage: '',
+    homepage: 'index.md',
     defaultTitle: 'quick-markdown',
     notFoundText: '',
     notFoundPage: '',
+    theme: 'default'
 }
 
 if (typeof module === 'object') {
