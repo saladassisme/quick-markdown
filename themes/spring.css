@@ -48,15 +48,3 @@ thead tr {
 .plugins-files-list .file-item:hover {
     background-color: #f5f5f5;
 }
-.plugins-files-list .file-time {
-    float: left;
-    padding-right: 5px;
-}
-.plugins-files-list .file-tags {
-    float: right;
-}
-.plugins-files-list .file-tag {
-    background-color: #eee;
-    padding: 3px;
-    margin-right: 5px;
-}

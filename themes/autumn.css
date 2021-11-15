@@ -1,0 +1,34 @@
+html {
+    background-color: #fefef9;
+    color: #222;
+    font-family: 'Georgia', 'Microsoft YaHei';
+}
+body {
+    max-width: 600px;
+    padding: 0 1em;
+}
+a {
+    color: cornflowerblue;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: #444;
+}
+h1::before {
+    content: "# ";
+    color: #b22222;
+    font-weight: bold;
+    font-family: 'Microsoft YaHei';
+}
+pre.hljs {
+    background-color: #fff;
+}
+code {
+    background-color: #f6f4e7;
+}
+thead tr {
+    border-bottom-color: #b22222;
+}
+.plugins-files-list .file-tag {
+    background-color: #f6f4e7;
+    color: #8e8a6f;
+}

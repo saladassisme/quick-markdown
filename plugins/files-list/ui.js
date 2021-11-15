@@ -11,16 +11,29 @@
             const sortBy = $dom.dataset.sort
             const isAsc = $dom.dataset.asc === '' // dec default
             const dataPath = $dom.dataset.path
-            const showTags = $dom.dataset.tags === ''
-            const showTime = $dom.dataset.time === ''
-            const showAbstract = $dom.dataset.abstract === ''
+            const showTags = $dom.dataset.showTags === ''
+            const showTime = $dom.dataset.showTime === ''
+            const showAbstract = $dom.dataset.showAbstract === ''
+            const filterTags = $dom.dataset.tags && new Set($dom.dataset.tags.split(','))
+            const max = $dom.dataset.max
 
             loadFile(dataPath, (dataStr) => {
-                const data = JSON.parse(dataStr)
+                let data = JSON.parse(dataStr)
                 if (sortBy === 'time') {
                     data.sort((a, b) => isAsc
                         ? (a.frontMatter.time > b.frontMatter.time ? 1 : -1)
                         : (a.frontMatter.time > b.frontMatter.time ? -1 : 1))
+                }
+                if (filterTags) {
+                    data = data.filter(
+                        item =>
+                            item.frontMatter.tags.some(tag =>
+                                filterTags.has(tag)
+                            )
+                    )
+                }
+                if (max) {
+                    data = data.slice(0, max)
                 }
                 data.forEach(d => {
                     const $item = document.createElement('div')
@@ -44,7 +57,7 @@
 
                     const $titleLink = document.createElement('a')
                     $titleLink.innerText = d.frontMatter.title
-                    $titleLink.href = `?${d.fileData.docPath}`
+                    $titleLink.href = window.location.href.replace(/plugins\/files-list.*|\?.*/, '') + `?${d.fileData.docPath}`
                     $title.appendChild($titleLink)
 
                     for (const t of d.frontMatter.tags) {
@@ -79,10 +92,16 @@
         }
     }
 
+    launch()
+
     document.addEventListener('DOMSubtreeModified', function () {
+        launch()
+    })
+
+    function launch () {
         const domList = document.getElementsByClassName('plugins-files-list')
         if (domList.length !== 0 && state === State.Waiting) {
             renderFilesListUI(domList)
         }
-    })
+    }
 })()
