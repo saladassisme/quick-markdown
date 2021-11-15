@@ -16,23 +16,23 @@ node plugins/index.js
 
 即可运行所有在 `plugins/config.json` 中设置的插件。
 
-`plugins/config.json` 格式为 `插件目录名: 插件参数列表` 。同一个插件可运行多次。
+`plugins/config.json` 格式为 `[插件目录名, 插件参数列表]` 。同一个插件可运行多次。
 
 如：
 
 ```
-{
-    "files-list": [
+[
+    ["files-list", [
         "-d", "docs/",
         "-o", "data/docs-list",
         "-e", ".md"
-    ],
-    "files-list": [
+    ]],
+    ["files-list", [
         "-d", "docs/",
         "-o", "data/docs-list-2",
         "-e", ".html"
-    ]
-}
+    ]]
+]
 ```
 
 ## 预置插件

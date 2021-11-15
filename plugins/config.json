@@ -1,8 +1,8 @@
 {
-    "files-list": [
+    ["files-list", [
         "-d", "docs/",
         "-o", "data/files-list.output",
         "-e", ".md"
-    ]
+    ]]
 }
 

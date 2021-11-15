@@ -7,11 +7,11 @@ main()
 async function main () {
     const Config = JSON.parse(await fs.readFile(__dirname +'/config.json').catch(_ => process.exit(0)))
 
-    for (const pluginName in Config) {
+    for (const plugin of Config) {
         try {
-            const scriptPath = __dirname + '/' + pluginName + '/index.js'
+            const scriptPath = __dirname + '/' + plugin[0] + '/index.js'
             await fs.access(scriptPath)
-            await exec(`node ${scriptPath} ${Config[pluginName].join(' ')}`)
+            await exec(`node ${scriptPath} ${plugin[1].join(' ')}`)
         } catch (_) {}
     }
 }
