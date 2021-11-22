@@ -20,7 +20,7 @@ function load404 (mdRender) {
     }
 }
 function renderPage (data, mdRender) {
-    document.getElementById('article').innerHTML = mdRender.render(data)
+    document.getElementById('article').innerHTML = mdRender.render(renderFrontMatter(data))
     try {
         document.title = document.getElementsByClassName('doc-title')[0].textContent
     } catch (_) {}
@@ -64,3 +64,47 @@ function loadCSS (url) {
     return link
 } 
 
+function renderFrontMatter (content) {
+    const res = {}
+    if (content.indexOf('<!--') === 0) {
+        const raw = content.match(/^<!--(.*?)-->/s)[1]
+        raw.split('\n')
+            .forEach(e => {
+                if (e.replace(' ', '').length === 0) {
+                    return
+                }
+                const d = e.split(':')
+                res[d[0].replace(' ', '')] = d.slice(1).join('').replace(/^ /, '') 
+            })
+    }
+    res.tags = res.tags ? res.tags.split(' ') : []
+
+    let renderedTitle = ''
+    let renderedTime = ''
+    let renderedTags = ''
+    let renderedAbstract = ''
+
+    if (res.title) {
+        renderedTitle = '<h1 class="doc-title">' + res.title + '</h1>'
+    }
+    if (res.time) {
+        renderedTime = '<div class="doc-time">' + res.time + '</div>'
+    }
+    if (res.tags.length) {
+        for (var i = 0; i < res.tags.length; i++) {
+            renderedTags += '<span class="doc-single-tag">' + res.tags[i] + '</span>'
+        }
+        renderedTags = '<div class="doc-tags">' + renderedTags + '</div>'
+    }
+    if (res.abstract) {
+        renderedAbstract = '\n\n> ' + res.abstract + '\n\n'
+    }
+    const rendered = 
+        renderedTitle
+        + '<div class="doc-info">'
+            + renderedTime + renderedTags
+        + '</div>'
+        + renderedAbstract
+
+    return rendered + content
+}

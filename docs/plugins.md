@@ -1,8 +1,7 @@
 <!--
 time: 2021-11-14
+title: 插件系统
 -->
-
-<h1 class="doc-title">插件系统</h1>
 
 $<toc{}>
 

@@ -1,12 +1,10 @@
 <!--
 title: Hi, 欢迎使用 quick-markdown
 time: 2021-11-12
-tags: docs example
-abstract: quick-markdown 使用说明
+tags: 欢迎 快速开始
+abstract: quick-markdown 是一个 markdown 展示工具，能够快速为你的 markdown 文件生成展示页面。
 -->
-<h1 class="doc-title">Hi, 欢迎使用 quick-markdown🗂️</h1>
 
-quick-markdown 是一个 markdown 展示工具，能够快速为你的 markdown 文件生成展示页面。
 
 # ✨快速开始
 
@@ -36,3 +34,4 @@ mengrru.github.io/quick-markdown/?example
 - [插件系统](?plugins)
 - [使用 quick-markdown 搭建一个博客](?blog)
 - [使用案例](?example)
+

@@ -12,8 +12,10 @@
     <article id="article">
     </article>
     <footer id="footer" style="display: none;">
-        <a id="footer-link" class="footer-link" onclick="window.history.go(-1); return false" href="#">返回上一页</a>
-        <a id="footer-link" class="footer-link" href="/">返回首页</a>
+        <div class="footer-buttons">
+            <a id="footer-link" class="footer-link" onclick="window.history.go(-1); return false" href="#">返回上一页</a>
+            <a id="footer-link" class="footer-link" href=".">返回首页</a>
+        </div>
     </footer>
     <script src="./config.js"></script>
     <script>
@@ -76,7 +78,9 @@
             level: 1,
             permalink: false,
             containerId:"header-toc"
-        }).use(markdownItTocDoneRight)
+        }).use(markdownItTocDoneRight, {
+            level: [1, 2]
+        })
         .use(markdownitMark)
         .use(markdownitContainer, 'green')
         .use(markdownitContainer, 'red')

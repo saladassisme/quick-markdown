@@ -115,7 +115,17 @@ h5 {
 h6 {
     font-size: 1em;
 }
- .plugins-files-list .file-item {
+iframe {
+  border: none;
+}
+blockquote {
+    border-left: 5px solid #ccc;
+    padding: .1em 1em;
+    background-color: #fafafa;
+    margin: 1em 0;
+    color: #555;
+}
+.plugins-files-list .file-item {
     margin: .5em 0;
     overflow: hidden;
 }
@@ -131,6 +141,24 @@ h6 {
     padding: 3px;
     margin-right: 5px;
 }
-iframe {
-  border: none;
+.doc-info {
+    overflow: hidden;
+    margin-bottom: 2em;
+    margin-top: -.5em;
+}
+.doc-time {
+    float: left;
+    margin-right: 1em;
+}
+.doc-tags {
+    float: left;
+}
+.doc-single-tag {
+    margin-right: .5em;
+    background-color: #21618C;
+    color: #fefefe;
+    padding: 0 .2em;
+}
+.doc-single-tag::before {
+    content: '# '
 }

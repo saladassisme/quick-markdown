@@ -1,7 +1,7 @@
 <!--
 time: 2021-11-14
+title: 详细说明
 -->
-<h1 class="doc-title">详细说明</h1>
 
 $<toc{}>
 
@@ -68,12 +68,28 @@ docs/
 - [markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor)
 - [markdown-it-toc-done-right](https://github.com/nagaozen/markdown-it-toc-done-right)
 
-其中为 markdown-it-container 设置了两个默认样式：`tips` 和 `warning`
-
-另外，你可以通过为文字添加class `doc-title` 的方式来定义页面的标题：
+**文章导航目录**
 
 ```
-<h1 class="doc-title">页面标题<h1>
+<toc{}>
+```
+
+**mark**
+
+```
+==marked==
+```
+
+**container**
+
+```
+::: green
+your content
+:::
+
+::: red
+your content
+:::
 ```
 
 ## Front matter
@@ -89,4 +105,4 @@ abstract: <摘要>
 -->
 ```
 
-Front matter 多被插件使用。如果你不使用插件，它便没有什么用。
+写在 front matter 中的内容会被渲染到文档页面上。
