@@ -11,6 +11,7 @@
 /***** quick mardown default style *****/
 body {
     margin: 0 auto;
+    padding-bottom: 3em;
 }
 code {
     background-color: rgba(27,31,35, .05);
@@ -129,4 +130,7 @@ h6 {
     background-color: #eee;
     padding: 3px;
     margin-right: 5px;
+}
+iframe {
+  border: none;
 }

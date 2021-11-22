@@ -44,7 +44,7 @@
             .use(markdownitContainer, 'tips')
             .use(markdownitContainer, 'warning')
 
-            loadCSS(Config.theme && 'themes/' + Config.theme + '.css')
+            loadCSS(Config.theme && 'themes/' + Config.theme + '/index.css')
 
             loadPage(md, query, function () {
                 load404(md)
@@ -81,7 +81,7 @@
         .use(markdownitContainer, 'green')
         .use(markdownitContainer, 'red')
 
-        loadCSS(Config.theme && 'themes/' + Config.theme + '.css')
+        loadCSS(Config.theme && 'themes/' + Config.theme + '/index.css')
         loadPage(md, query, function () {
             load404(md)
         })
