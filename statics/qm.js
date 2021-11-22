@@ -105,6 +105,7 @@ function renderFrontMatter (content) {
             + renderedTime + renderedTags
         + '</div>'
         + renderedAbstract
+        + '\n\n'
 
     return rendered + content
 }
