@@ -8,7 +8,7 @@
 
 <div data-show-tags class="plugins-files-list" data-path="data/posts-list" data-sort="time" data-show-time data-max="5"></div>
 
-[更多](plugins/files-list?path=/data/posts-list&sort=time&show-time&show-tags)
+[更多](plugins/files-list?path=data/posts-list&sort=time&show-time&show-tags)
 
 # 其它
 [关于](?blog/about) / [友链](plugins/display?links) 
