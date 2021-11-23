@@ -30,8 +30,8 @@ mengrru.github.io/quick-markdown/?example
 
 # 🌻更多
 
-- [详细说明](?usage)
-- [插件系统](?plugins)
-- [使用 quick-markdown 搭建一个博客](?blog)
-- [使用案例](?example)
+- [详细说明](?docs/usage)
+- [插件系统](?docs/plugins)
+- [使用 quick-markdown 搭建一个博客](?docs/blog)
+- [使用案例](?docs/example)
 

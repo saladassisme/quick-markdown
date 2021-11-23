@@ -53,12 +53,12 @@ node plugins/files-list/index.js -d docs
 最后在需要显示文件列表的地方插入代码：
 
 ```
-<div data-show-time data-show-tags class="plugins-files-list" data-path="data/files-list.output"></div>
+<div data-show-time data-show-tags class="plugins-files-list" data-path="data/docs-list"></div>
 ```
 
 效果如下：
 
-<div data-show-time data-show-tags class="plugins-files-list" data-path="data/files-list.output"></div>
+<div data-show-time data-show-tags class="plugins-files-list" data-path="data/docs-list"></div>
 
 html 标签属性可选参数：
 

@@ -118,7 +118,7 @@ abstract: <摘要>
 
 可以在 url 最后添加`&theme=<主题名称>`来预览。
 
-比如：[?usage&theme=autumn](?usage&theme=autumn)
+比如：[?docs/usage&theme=autumn](?docs/usage&theme=autumn)
 
 可用的主题：
 - default

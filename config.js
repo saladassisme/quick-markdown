@@ -1,6 +1,6 @@
 var Config = {
-    docRoot: 'docs/',
-    homepage: 'index.md',
+    docRoot: 'pages/',
+    homepage: 'docs/index.md',
     defaultTitle: 'quick-markdown',
     notFoundText: '',
     notFoundPage: '',
