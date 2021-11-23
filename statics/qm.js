@@ -7,14 +7,21 @@
     markdownItTocDoneRight,
     hljs
 ) {
-    const $footerLink = document.getElementById('footer-link')
-    // $footerLink.href = window.location.pathname + '?' + Config.homepage
+    const $footerText = document.getElementById('footer-text')
+    const $customedFooterText = document.getElementById('customed-footer-text')
     document.title = Config.defaultTitle || 'Quick Markdown'
     const notFoundMessage = Config.notFoundText || '404 not found'
 
     var query = window.location.search.substring(1).split('&')[0]
     if (query && query !== Config.homepage.split('.')[0]) {
         document.getElementById('footer-buttons').style.display = 'block'
+    }
+    if ($footerText && $customedFooterText) {
+        if (Config.showFooterText) {
+            $customedFooterText.innerHTML = Config.footerText
+        } else {
+            $footerText.style.display = 'none'
+        }
     }
 
     function loadPage (mdRender, query, errfn) {

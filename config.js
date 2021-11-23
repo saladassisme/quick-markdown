@@ -4,7 +4,9 @@ var Config = {
     defaultTitle: 'quick-markdown',
     notFoundText: '',
     notFoundPage: '',
-    theme: 'default'
+    theme: 'default',
+    showFooterText: true,
+    footerText: ''
 }
 
 if (typeof module === 'object') {

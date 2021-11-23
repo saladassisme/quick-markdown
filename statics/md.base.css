@@ -131,7 +131,6 @@ td {
 footer {
     text-align: center;
     padding-top: 20px;
-    padding-bottom: 20px;
 }
 header {
     text-align: center;
@@ -216,4 +215,10 @@ blockquote {
 #aside {
     float: var(--aside-float);
     width: var(--aside-width);
+}
+#footer-text {
+    padding-top: 2em;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 0px;
 }

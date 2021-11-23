@@ -10,8 +10,7 @@
 <body>
     <header id="header"></header>
     <main id="main">
-        <article id="article">
-        </article>
+        <article id="article"></article>
         <aside id="aside"></aside>
     </main>
     <footer id="footer">
@@ -19,7 +18,9 @@
             <a class="footer-link" onclick="window.history.go(-1); return false" href="#">返回上一页</a>
             <a id="footer-link" class="footer-link" href=".">返回首页</a>
         </div>
+        <p id="footer-text"><span id="customed-footer-text"></span> Powered by <a href="https://github.com/mengrru/quick-markdown">quick-markdown</a></p>
     </footer>
+
     <script src="./config.js"></script>
     <script>
         if (inIE()) {
