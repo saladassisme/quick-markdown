@@ -15,6 +15,8 @@ $<toc{}>
 | notFoundText | 找不到页面时要显示的文字，非必须 |
 | notFoundPage | 找不到页面时要显示的页面路由，非必须，在与 notFoundText 同时设置时，此项优先显示 |
 | theme | 用于设置主题。先将主题下载到 themes 目录中，然后填写主题文件名，不包含`.css` |
+| showFooterText | 是否显示页脚文字，默认为 true |
+| footerText | 自定义的页脚文字，支持 HTML。非必须 |
 
 ## 路由规则
 
@@ -68,10 +70,10 @@ docs/
 - [markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor)
 - [markdown-it-toc-done-right](https://github.com/nagaozen/markdown-it-toc-done-right)
 
-**文章导航目录**
+**文章导航目录（文章大纲）**
 
 ```
-<toc{}>
+$<toc{}>
 ```
 
 **mark**
