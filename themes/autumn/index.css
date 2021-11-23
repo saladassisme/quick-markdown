@@ -1,17 +1,24 @@
 html {
-    background-color: #fefef9;
-    color: #222;
-    font-family: 'Georgia', 'Microsoft YaHei';
-}
-body {
-    max-width: 600px;
-    padding: 0 1em;
-}
-a {
-    color: cornflowerblue;
-}
-h1, h2, h3, h4, h5, h6 {
-    color: #444;
+    --font: 'Georgia', 'Microsoft YaHei';
+    --bg: #fefef9;
+    --body-bg: #fefef9;
+    --body-width: 600px;
+    --text: #222;
+    --headline: #444;
+    --link: cornflowerblue;
+    --code-bg: #f6f4e7;
+    --code-block-bg: #fff;
+    --code-block-border: #ddd;
+    --mark-bg: #f6f4e7;
+    --green-tip-bg: #EAFAF1;
+    --red-tip-bg: #FDF2E9;
+    --table-head-border: #b22222;
+    --table-body-border: #ccc;
+    --blockquote-text: #555;
+    --blockquote-border: #8e8a6f;
+    --blockquote-bg: #f8f5ef;
+    --doc-tag-text: #8e8a6f;
+    --doc-tag-bg: #f6f4e7;
 }
 h1::before {
     content: "# ";
@@ -19,16 +26,7 @@ h1::before {
     font-weight: bold;
     font-family: 'Microsoft YaHei';
 }
-pre.hljs {
-    background-color: #fff;
-}
-code {
-    background-color: #f6f4e7;
-}
-thead tr {
-    border-bottom-color: #b22222;
-}
-.plugins-files-list .file-tag {
-    background-color: #f6f4e7;
-    color: #8e8a6f;
+.avatar {
+    width: 48px;
+    border: 5px solid #F6F4E7;
 }

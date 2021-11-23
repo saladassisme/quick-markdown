@@ -1,50 +1,38 @@
- html {
-    width: 100%;
-    height: 100%;
-    background-color: #E8E9DB;
-    font-family: 'Microsoft JhengHei', '宋体' !important;
+html {
+    --font: 'Microsoft JhengHei', '宋体' !important;
+    --bg: #E8E9DB;
+    --body-bg: #fdfdfd;
+    --body-width: 700px;
+    --text: #444;
+    --headline: #444;
+    --link: #e58142;
+    --code-bg: #E8E9DB;
+    --code-block-bg: #fff;
+    --code-block-border: #ddd;
+    --mark-bg: #f6f4e7;
+    --green-tip-bg: #EAFAF1;
+    --red-tip-bg: #FDF2E9;
+    --table-head-border: #b4b699;
+    --table-body-border: #ccc;
+    --blockquote-text: #555;
+    --blockquote-border: #e58142;
+    --blockquote-bg: #f8f9ef;
+    --doc-tag-text: #8e8a6f;
+    --doc-tag-bg: #E8E9DB;
 }
 body {
-    width: 100%;
-    min-height: 100%;
-    margin: 0 auto;
-    max-width: 700px;
-    background-color: #fdfdfd;
+    box-sizing: border-box;
+    padding: 3.5em;
+    padding-top: 1em;
 }
 p {
     line-height: 1.7em;
 }
-a {
-    color: #e58142 !important;
-}
 a:hover {
     background-color: #c7c9af;
-    color: #fff !important;
-}
-h1 {
-    padding-top: 10px;
+    color: #fff;
 }
 h1::before {
     content: "# ";
     color: #b4b699;
-}
-pre.hljs {
-    background-color: #fff;
-}
-thead tr {
-    border-bottom: 2px solid #b4b699;
-}
-#article {
-    height: 100%;
-    box-sizing: border-box;
-    color: #666;
-    padding: 10%;
-    padding-top: 5%;
-}
-.plugins-files-list .file-item {
-    margin: 1em 0;
-    overflow: hidden;
-}
-.plugins-files-list .file-item:hover {
-    background-color: #f5f5f5;
 }

@@ -24,6 +24,7 @@
         var $content = document.getElementById('article')
         if (!config) {
             document.title = '404 Not Found'
+            $content.style.textAlign = 'center'
             $content.innerHTML = '404 Not Found'
             throw Error('没有这个配置')
         }

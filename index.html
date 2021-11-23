@@ -9,87 +9,59 @@
 </head>
 <body>
     <header id="header"></header>
-    <article id="article">
-    </article>
-    <footer id="footer" style="display: none;">
-        <div class="footer-buttons">
-            <a id="footer-link" class="footer-link" onclick="window.history.go(-1); return false" href="#">返回上一页</a>
+    <main id="main">
+        <article id="article">
+        </article>
+        <aside id="aside"></aside>
+    </main>
+    <footer id="footer">
+        <div id="footer-buttons" style="display: none;">
+            <a class="footer-link" onclick="window.history.go(-1); return false" href="#">返回上一页</a>
             <a id="footer-link" class="footer-link" href=".">返回首页</a>
         </div>
     </footer>
     <script src="./config.js"></script>
     <script>
-        var $footerLink = document.getElementById('footer-link')
-        $footerLink.href = window.location.pathname + '?' + Config.homepage
-        document.title = Config.defaultTitle || 'Quick Markdown'
-        var notFoundMessage = Config.notFoundText || '404 not found'
-
-        var query = window.location.search.substring(1)
-        if (query && query !== Config.homepage.split('.')[0]) {
-            document.getElementById('footer').style.display = 'block'
+        if (inIE()) {
+            document.getElementById('header').innerHTML = '<p style="text-align: center; padding-top: 20px;">你的浏览器版本太老了！推荐你使用 <a href="https://www.google.cn/chrome/">Chrome 浏览器</a>'
         }
+        const themeInfo = 
+            window.location.search
+                .slice(1).split('&')
+                .slice(1).map(e => e.split('='))
+                .filter(e => e[0] === 'theme')
+                [0]
+        const themeName = themeInfo && themeInfo[1]
+        loadCSS(
+            (themeName && 'themes/' + themeName + '/index.css')
+            || (Config.theme && 'themes/' + Config.theme + '/index.css')
+        )
+        function inIE () {
+            var userAgent = window.navigator.userAgent.toLowerCase()
+            return userAgent.indexOf('trident') !== -1
+        }
+        function loadCSS (url) {
+            if (!url) {
+                document.getElementsByTagName('html')[0].style.display = 'block'
+                return
+            }
+            const head = document.getElementsByTagName('head')[0]
+            const link = document.createElement('link')
+            link.type = 'text/css'
+            link.rel = 'stylesheet'
+            link.href = url
+            head.appendChild(link)
+            document.getElementsByTagName('html')[0].style.display = 'block'
+            return link
+        } 
     </script>
-    <script src="./statics/qm.js"></script>
     <script src="./statics/markdown-it.js"></script>
     <script src="./statics/markdown-it-mark.js"></script>
     <script src="./statics/markdown-it-container.js"></script>
-    <script>
-        // IE
-        var userAgent = window.navigator.userAgent.toLowerCase()
-        if (userAgent.indexOf('trident') !== -1) {
-            document.getElementById('header').innerHTML = '<p style="text-align: center; padding-top: 20px;">你的浏览器版本太老了！推荐你使用 <a href="https://www.google.cn/chrome/">Chrome 浏览器</a>'
-
-            var md = markdownit({
-                html: true,
-            })
-            md.use(markdownitMark)
-            .use(markdownitContainer, 'tips')
-            .use(markdownitContainer, 'warning')
-
-            loadCSS(Config.theme && 'themes/' + Config.theme + '/index.css')
-
-            loadPage(md, query, function () {
-                load404(md)
-            })
-            throw new Error('You are in IE.')
-        }
-        
-    </script>
     <script src="./statics/markdown-it-anchor.js"></script>
     <script src="./statics/markdown-it-toc-done-right.js"></script>
     <script src="./statics/highlight.min.js"></script>
-    <script>
-        var md = markdownit({
-            html: true,
-            highlight: function (str, lang) {
-                if (lang && hljs.getLanguage(lang)) {
-                    try {
-                        return '<pre class="hljs"><code>' +
-                         hljs.highlight(str, { language: lang }).value
-                         + '</code></pre>'
-                    } catch (_) {}
-                }
-                return '<pre class="hljs"><code>' +
-                         md.utils.escapeHtml(str)
-                         + '</code></pre>'
-            }
-        })
-        md.use(markdownItAnchor, {
-            level: 1,
-            permalink: false,
-            containerId:"header-toc"
-        }).use(markdownItTocDoneRight, {
-            level: [1, 2]
-        })
-        .use(markdownitMark)
-        .use(markdownitContainer, 'green')
-        .use(markdownitContainer, 'red')
-
-        loadCSS(Config.theme && 'themes/' + Config.theme + '/index.css')
-        loadPage(md, query, function () {
-            load404(md)
-        })
-    </script>
+    <script src="./statics/qm.js"></script>
     <script src="./plugins/files-list/ui.js"></script>
 </body>
 </html>

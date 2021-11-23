@@ -1,0 +1,37 @@
+html {
+    --font: 'Georgia', 'Microsoft YaHei';
+    --bg: #fffcf5;
+    --body-bg: #fffcf5;
+    --body-width: 600px;
+    --text: #4f4a3d;
+    --headline: #625c4c;
+    --link: #D42811;
+    --code-bg: #EEEAE0;
+    --code-block-bg: #fff;
+    --code-block-border: #ddd;
+    --mark-bg: #f6f4e7;
+    --green-tip-bg: #EAFAF1;
+    --red-tip-bg: #FDF2E9;
+    --table-head-border: #d42811;
+    --table-body-border: #ccc;
+    --blockquote-text: #666;
+    --blockquote-border: #D1C6AE;
+    --blockquote-bg: #EEEAE0;
+    --doc-tag-text: #fffcf5;
+    --doc-tag-bg: #D1C6AE;
+}
+h1::before {
+    content: "# ";
+    color: #D1C6AE;
+    font-weight: bold;
+    font-family: 'Microsoft YaHei';
+}
+.plugins-files-list .file-item:hover {
+    background-color: #EEEAE0;
+}
+.avatar {
+    width: 48px;
+    box-shadow: 5px 5px 0px #ebe4d5
+}
+
+

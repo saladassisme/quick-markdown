@@ -79,18 +79,25 @@ docs/
 ```
 ==marked==
 ```
+==marked==
 
 **container**
 
 ```
-::: green
+::: tips
 your content
 :::
 
-::: red
+::: warning
 your content
 :::
 ```
+::: tips
+your content
+:::
+::: warning
+your content
+:::
 
 ## Front matter
 
@@ -106,3 +113,15 @@ abstract: <摘要>
 ```
 
 写在 front matter 中的内容会被渲染到文档页面上。
+
+## 内置主题
+
+可以在 url 最后添加`&theme=<主题名称>`来预览。
+
+比如：[?usage&theme=autumn](?usage&theme=autumn)
+
+可用的主题：
+- default
+- autumn
+- spring
+- paper

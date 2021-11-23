@@ -1,6 +1,5 @@
-#article {
-    max-width: 900px;
-    margin: 0 auto;
+html {
+    --body-width: 900px;
 }
 
 .plugins-files-list .file-item:hover {

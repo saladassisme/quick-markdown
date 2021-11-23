@@ -69,6 +69,7 @@ async function writeFile (mypath, str) {
     await fs.writeFile(mypath, str)
 }
 async function readFileFrontMatter (mypath) {
+    const fileInfo = await fs.stat(mypath)
     const content = await fs.readFile(mypath, 'utf8')
     const res = {}
     if (content.indexOf('<!--') === 0) {
@@ -83,6 +84,7 @@ async function readFileFrontMatter (mypath) {
             })
     }
     res.tags = res.tags ? res.tags.split(' ') : []
+    res.time = res.time || fileInfo.birthtime.toLocaleDateString('zh-CN').replace(/\//g, '-')
     return res
 }
 async function readDirRecursively (mypath) {
