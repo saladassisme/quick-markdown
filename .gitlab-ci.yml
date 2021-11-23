@@ -1,0 +1,14 @@
+image: node:latest
+
+pages:
+  stage: deploy
+  script:
+    - node plugins/index.js
+    - mkdir .public
+    - cp -r * .public
+    - mv .public public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
