@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="../../statics/md.base.css">
+</head>
+<body>
+
+    <div id="article"></div>
+    <footer id="footer">
+        <a id="footer-link" class="footer-link" onclick="window.history.go(-1); return false" href="#">返回上一页</a>
+        <a id="footer-link" class="footer-link" href="../../">返回首页</a>
+    </footer>
+    <script src="../../config.js"></script>
+    <script src="ui.js"></script>
+    <script>
+        loadCSS(Config.theme && '../../themes/' + Config.theme + '/index.css')
+
+        var query = window.location.search.substring(1)
+        query = query.split('&').map(e => e.split('='))
+
+        var $body = document.getElementById('article')
+        var $title = document.createElement('h1')
+        
+        const customedTitle = query.find(e => e[0] === 'title')
+        const tags = query.find(e => e[0] === 'tags')
+        const title = (customedTitle && customedTitle[1]) || (tags && 'Tags: ' + tags[1]) || '归档'
+        document.title = title
+        $title.innerText = title
+
+        var $filesList = document.createElement('div')
+        $filesList.className = 'plugins-files-list'
+
+        for (let i = 0; i < query.length; i++) {
+            $filesList.dataset[query[i][0].replace(/-(\w)/, toUpperCase)] = query[i][1] || ''
+        }
+        $body.append($title, $filesList)
+        
+
+        function toUpperCase (_, s) {
+            return s.toUpperCase()
+        }
+        function loadCSS (url) {
+            if (!url) {
+                document.getElementsByTagName('html')[0].style.display = 'block'
+                return
+            }
+            const head = document.getElementsByTagName('head')[0]
+            const link = document.createElement('link')
+            link.type = 'text/css'
+            link.rel = 'stylesheet'
+            link.href = url
+            head.appendChild(link)
+            document.getElementsByTagName('html')[0].style.display = 'block'
+            return link
+        } 
+    </script>
+</body>
+</html>

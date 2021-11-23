@@ -1,0 +1,38 @@
+html {
+    --font: 'Microsoft JhengHei', '宋体' !important;
+    --bg: #E8E9DB;
+    --body-bg: #fdfdfd;
+    --body-width: 700px;
+    --text: #444;
+    --headline: #444;
+    --link: #e58142;
+    --code-bg: #E8E9DB;
+    --code-block-bg: #fff;
+    --code-block-border: #ddd;
+    --mark-bg: #f6f4e7;
+    --green-tip-bg: #EAFAF1;
+    --red-tip-bg: #FDF2E9;
+    --table-head-border: #b4b699;
+    --table-body-border: #ccc;
+    --blockquote-text: #555;
+    --blockquote-border: #e58142;
+    --blockquote-bg: #f8f9ef;
+    --doc-tag-text: #8e8a6f;
+    --doc-tag-bg: #E8E9DB;
+}
+body {
+    box-sizing: border-box;
+    padding: 3.5em;
+    padding-top: 1em;
+}
+p {
+    line-height: 1.7em;
+}
+a:hover {
+    background-color: #c7c9af;
+    color: #fff;
+}
+h1::before {
+    content: "# ";
+    color: #b4b699;
+}

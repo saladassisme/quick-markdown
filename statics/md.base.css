@@ -1,0 +1,224 @@
+/*!
+  Theme: Default
+  Description: Original highlight.js style
+  Author: (c) Ivan Sagalaev <maniac@softwaremaniacs.org>
+  Maintainer: @highlightjs/core-team
+  Website: https://highlightjs.org/
+  License: see project LICENSE
+  Touched: 2021
+*/pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{background:#f0f0f0;color:#444}.hljs-comment{color:#888}.hljs-punctuation,.hljs-tag{color:#444a}.hljs-tag .hljs-attr,.hljs-tag .hljs-name{color:#444}.hljs-attribute,.hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-name,.hljs-selector-tag{font-weight:700}.hljs-deletion,.hljs-number,.hljs-quote,.hljs-selector-class,.hljs-selector-id,.hljs-string,.hljs-template-tag,.hljs-type{color:#800}.hljs-section,.hljs-title{color:#800;font-weight:700}.hljs-link,.hljs-operator,.hljs-regexp,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-symbol,.hljs-template-variable,.hljs-variable{color:#bc6060}.hljs-literal{color:#78a960}.hljs-addition,.hljs-built_in,.hljs-bullet,.hljs-code{color:#397300}.hljs-meta{color:#1f7199}.hljs-meta .hljs-string{color:#4d99bf}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}
+
+/***** quick mardown default style *****/
+html {
+    --font: 'Microsoft YaHei';
+    --bg: #fff;
+    --body-bg: #fff;
+    --body-width: auto;
+    --text: #000;
+    --headline: #000;
+    --link: #21618C;
+    --code-bg: rgba(27,31,35, .05);
+    --code-block-bg: rgb(250, 250, 250);
+    --code-block-border: #ddd;
+    --mark-bg: rgb(221,237,234);
+    --green-tip-bg: #EAFAF1;
+    --red-tip-bg: #FDF2E9;
+    --table-head-border: #21618C;
+    --table-body-border: #ccc;
+    --blockquote-text: #555;
+    --blockquote-border: #ccc;
+    --blockquote-bg: #fafafa;
+    --doc-tag-text: #fefefe;
+    --doc-tag-bg: #21618C;
+
+    --article-float: none;
+    --aside-float: none;
+    --article-width: auto;
+    --aside-width: auto;
+}
+html {
+    background-color: var(--bg);
+    font-family: var(--font);
+    color: var(--text);
+    width: 100%;
+}
+body {
+    max-width: var(--body-width);
+    background-color: var(--body-bg);
+    margin: 0 auto;
+    padding: 0 1em;
+    padding-top: 1em;
+    padding-bottom: 3em;
+}
+code {
+    background-color: var(--code-bg);
+    padding: 3px 5px;
+    border-radius: 4px;
+    font-family: ui-monospace,SFMono-Regular,SF Mono,Consolas,Liberation Mono,Menlo,monospace;
+    font-size: .9em;
+    margin: 0 .3em;
+}
+pre.hljs {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid var(--code-block-border);
+    background-color: var(--code-block-bg);
+    overflow-x: auto;
+    line-height: 150%;
+}
+pre.hljs code {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+p img {
+    max-width: 100%;
+}
+mark {
+    background-color: var(--mark-bg);
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 1px;
+    border-radius: 3px;
+}
+p {
+    line-height: 170%;
+}
+.tips {
+    display: flex;
+    margin: 10px 0;
+    padding: 7px 20px;
+    background-color: var(--green-tip-bg);
+}
+.tips::before {
+    content: "💡";
+    font-size: 30px;
+    padding-top: 10px;
+    padding-right: 13px;
+}
+.warning {
+    display: flex;
+    margin: 10px 0;
+    padding: 7px 20px;
+    background-color: var(--red-tip-bg);
+}
+.warning::before {
+    content: "⚡";
+    float: left;
+    font-size: 30px;
+    padding-top: 10px;
+    padding-right: 13px;
+}
+li {
+    line-height: 170%;
+}
+a {
+    color: var(--link);
+}
+table {
+    border-collapse: collapse;
+}
+thead tr {
+    border-bottom: 2px solid var(--table-head-border);
+}
+thead th {
+    padding: 10px;
+}
+td {
+    padding: 10px;
+    border-bottom: 1px solid var(--table-body-border);
+}
+footer {
+    text-align: center;
+    padding-top: 20px;
+}
+header {
+    text-align: center;
+}
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.7em;
+}
+h3 {
+    font-size: 1.5em;
+}
+h4 {
+    font-size: 1.3em;
+}
+h5 {
+    font-size: 1.1em;
+}
+h6 {
+    font-size: 1em;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: var(--headline);
+}
+iframe {
+  border: none;
+}
+blockquote {
+    border-left: 5px solid var(--blockquote-border);
+    padding: .1em 1em;
+    background-color: var(--blockquote-bg);
+    margin: 1em 0;
+    color: var(--blockquote-text);
+}
+.plugins-files-list .file-item {
+    margin: .5em 0;
+    overflow: hidden;
+}
+.plugins-files-list .file-time {
+    float: left;
+    padding-right: 5px;
+}
+.plugins-files-list .file-tags {
+    float: right;
+}
+.plugins-files-list .file-tag {
+    background-color: var(--doc-tag-bg);
+    color: var(--doc-tag-text);
+    padding: 2px 3px;
+    margin-right: 5px;
+}
+.doc-info {
+    overflow: hidden;
+    margin-bottom: 2em;
+    margin-top: -.5em;
+}
+.doc-time {
+    float: left;
+    margin-right: 1em;
+}
+.doc-tags {
+    float: left;
+}
+.doc-single-tag {
+    margin-right: .5em;
+    background-color: var(--doc-tag-bg);
+    color: var(--doc-tag-text);
+    padding: 1px .2em;
+    display: inline-block;
+}
+.doc-single-tag::before {
+    content: '# '
+}
+#main {
+    overflow: hidden;
+}
+#article {
+    float: var(--article-float);
+    width: var(--article-width);
+}
+#aside {
+    float: var(--aside-float);
+    width: var(--aside-width);
+}
+#footer-text {
+    padding-top: 2em;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 0px;
+}

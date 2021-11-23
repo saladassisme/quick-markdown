@@ -1,0 +1,7 @@
+html {
+    --body-width: 900px;
+}
+
+.plugins-files-list .file-item:hover {
+    background-color: #f5f5f5;
+}

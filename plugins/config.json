@@ -1,0 +1,13 @@
+[
+    ["files-list", [
+        "-d", "pages/docs",
+        "-o", "data/docs-list",
+        "-e", ".md"
+    ]],
+    ["files-list", [
+        "-d", "pages/blog/posts",
+        "-o", "data/posts-list",
+        "-e", ".md"
+    ]]
+]
+
