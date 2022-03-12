@@ -1,7 +1,7 @@
 var Config = {
     docRoot: 'pages/',
-    homepage: 'docs/index.md',
-    defaultTitle: 'quick-markdown',
+    homepage: 'blog/index.md',
+    defaultTitle: 'Centrifugal',
     notFoundText: '',
     notFoundPage: '',
     theme: 'default',
